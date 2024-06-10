@@ -16,6 +16,7 @@
     disko.url = "github:nix-community/disko";
     stylix.url = "github:danth/stylix";
     ags.url = "github:Aylur/ags";
+    matugen.url = "github:InioX/matugen?ref=v2.2.0";
 
     # SFMono w/ patches
     sf-mono-liga-src = {
