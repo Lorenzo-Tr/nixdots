@@ -58,7 +58,7 @@ in {
     '')
 
     (writeShellScriptBin "importGsettings" ''
-      config="/home/redyf/.config/gtk-3.0/settings.ini"
+      config="/home/lorenzo/.config/gtk-3.0/settings.ini"
       if [ ! -f "$config" ]; then exit 1; fi
       gtk_theme="$(grep 'gtk-theme-name' "$config" | sed 's/.*\s*=\s*//')"
       icon_theme="$(grep 'gtk-icon-theme-name' "$config" | sed 's/.*\s*=\s*//')"

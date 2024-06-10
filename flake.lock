@@ -9,13 +9,13 @@
       "locked": {
         "lastModified": 1715722315,
         "narHash": "sha256-A9DqQw1dd04QeO8wV+Lx5TJQ0ur5BfQkbpOcL2LBzqc=",
-        "owner": "redyf",
+        "owner": "lorenzo",
         "repo": "Neve",
         "rev": "e106a6783c8e0dd94914c06fcef576521e2618ef",
         "type": "github"
       },
       "original": {
-        "owner": "redyf",
+        "owner": "lorenzo",
         "repo": "Neve",
         "type": "github"
       }

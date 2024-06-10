@@ -21,17 +21,6 @@
       url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
       flake = false;
     };
-
-    # git+ssh://git@git.example.com/User/repo.git
-    # berkeley = {
-    #   url = "git+ssh://git@github.com/redyf/berkeley.git";
-    #   flake = false;
-    # };
-
-    # monolisa-script = {
-    #   url = "git+ssh://git@github.com/redyf/test2.git";
-    #   flake = false;
-    # };
   };
 
   outputs = {
