@@ -14,7 +14,6 @@ in {
   boot = {
     kernelModules = ["v4l2loopback"]; # Autostart kernel modules on boot
     extraModulePackages = with config.boot.kernelPackages; [v4l2loopback]; # loopback module to make OBS virtual camera work
-    kernelParams = ["nvidia.NVreg_PreserveVideoMemoryAllocations=1"];
     supportedFilesystems = ["ntfs"];
     loader = {
       systemd-boot = {
@@ -36,39 +35,39 @@ in {
         theme =
           pkgs.fetchFromGitHub
           {
-            owner = "Lxtharia";
-            repo = "minegrub-theme";
-            rev = "193b3a7c3d432f8c6af10adfb465b781091f56b3";
-            sha256 = "1bvkfmjzbk7pfisvmyw5gjmcqj9dab7gwd5nmvi8gs4vk72bl2ap";
+            owner = "catppuccin";
+            repo = "grub";
+            rev = "88f6124757331fd3a37c8a69473021389b7663ad";
+            sha256 = "0rih0ra7jw48zpxrqwwrw1v0xay7h9727445wfbnrz6xwrcwbibv";
           };
       };
     };
   };
 
   hardware = {
-    nvidia = {
-      open = true;
-      nvidiaSettings = true;
-      powerManagement.enable = true;
-      modesetting.enable = true;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
-    };
+    # nvidia = {
+    #   open = true;
+    #   nvidiaSettings = true;
+    #   powerManagement.enable = true;
+    #   modesetting.enable = true;
+    #   package = config.boot.kernelPackages.nvidiaPackages.stable;
+    # };
     opengl = {
       enable = true;
       driSupport32Bit = true;
-      extraPackages = with pkgs; [nvidia-vaapi-driver];
+      # extraPackages = with pkgs; [nvidia-vaapi-driver];
     };
   };
 
   environment = {
     variables = {
       EDITOR = "nvim";
-      LIBVA_DRIVER_NAME = "nvidia";
+      # LIBVA_DRIVER_NAME = "nvidia";
       XDG_SESSION_TYPE = "wayland";
-      GBM_BACKEND = "nvidia-drm";
-      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-      __GL_GSYNC_ALLOWED = "1";
-      __GL_VRR_ALLOWED = "0"; # Controls if Adaptive Sync should be used. Recommended to set as “0” to avoid having problems on some games.
+      # GBM_BACKEND = "nvidia-drm";
+      # __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+      # __GL_GSYNC_ALLOWED = "1";
+      # __GL_VRR_ALLOWED = "0"; # Controls if Adaptive Sync should be used. Recommended to set as “0” to avoid having problems on some games.
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
       CUDA_CACHE_PATH = "$XDG_CACHE_HOME/nv";
@@ -79,7 +78,7 @@ in {
       WLR_NO_HARDWARE_CURSORS = "1"; # Fix cursor rendering issue on wlr nvidia.
       DEFAULT_BROWSER = "${pkgs.firefox}/bin/firefox"; # Set default browser
     };
-    shellAliases = {nvidia-settings = "nvidia-settings --config='$XDG_CONFIG_HOME'/nvidia/settings";};
+    # shellAliases = {nvidia-settings = "nvidia-settings --config='$XDG_CONFIG_HOME'/nvidia/settings";};
   };
 
   # Configure console keymap
@@ -276,7 +275,7 @@ in {
         gdm.enable = true;
         sessionCommands = ''
           xset r rate 150 25
-          xrandr --output DP-0 --mode 1920x1080 --rate 165 --primary
+          xrandr --output DP-0 --mode 1920x1080 --rate 144 --primary
           nitrogen --restore
         '';
       };
@@ -295,7 +294,7 @@ in {
         variant = "";
         layout = "br";
       };
-      videoDrivers = ["nvidia"];
+      # videoDrivers = ["nvidia"];
     };
     logmein-hamachi.enable = false;
     flatpak.enable = false;
@@ -308,7 +307,7 @@ in {
               enable = true;
               primary = true;
               mode = "1920x1080";
-              rate = "165.00";
+              rate = "144.00";
               position = "0x0";
             };
           };

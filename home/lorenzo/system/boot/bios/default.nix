@@ -22,10 +22,10 @@
         theme =
           pkgs.fetchFromGitHub
           {
-            owner = "Lxtharia";
-            repo = "minegrub-theme";
-            rev = "193b3a7c3d432f8c6af10adfb465b781091f56b3";
-            sha256 = "1bvkfmjzbk7pfisvmyw5gjmcqj9dab7gwd5nmvi8gs4vk72bl2ap";
+            owner = "catppuccin";
+            repo = "grub";
+            rev = "88f6124757331fd3a37c8a69473021389b7663ad";
+            sha256 = "0rih0ra7jw48zpxrqwwrw1v0xay7h9727445wfbnrz6xwrcwbibv";
           };
       };
     };

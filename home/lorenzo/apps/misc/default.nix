@@ -5,23 +5,20 @@
     # ani-cli # A cli tool to browse and play anime
     # mangal # A fancy CLI app written in Go which scrapes, downloads and packs manga into different formats
 
-    # Cloud
-    awscli2
-
     # Gaming
-    # gnutls
-    # minecraft
-    # grapejuice
-    # libpulseaudio
+    # gnutls # A secure communications library SSL, TSL, DTLS
+    # minecraft # Popular game created by Mojang
+    # grapejuice # Roblox on linux
+    # libpulseaudio # Audio server for POSIX
 
     # Notetaking
     obsidian
 
     # Other stuff
-    gh
-    ollama
+    # gh # Github Cli
+    # ollama # Tool for run Llama 3, Phi 3, Mistral, Gemma, and other models.
     playerctl
-    # spotify
+    spotify
 
     # Rice
     # mako
@@ -44,6 +41,6 @@
     tree-sitter # A parser generator tool and an incremental parsing library
     appimage-run # Run appimage files in the terminal
     polkit_gnome
-    cinnamon.nemo
+    cinnamon.nemo # File explorer from Linux Mint
   ];
 }

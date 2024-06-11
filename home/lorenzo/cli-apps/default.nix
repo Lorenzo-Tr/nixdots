@@ -6,7 +6,6 @@ _: {
     ./fzf
     ./jq
     ./neovim
-    # ./neve
     ./ripgrep
     ./rm-improved
     ./starship
