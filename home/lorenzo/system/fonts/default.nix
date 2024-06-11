@@ -5,7 +5,7 @@
       font-awesome
       fira-code-symbols
       material-design-icons
-      (nerdfonts.override {fonts = ["Cascadia Code"];})
+      (nerdfonts.override {fonts = ["CascadiaCode"];})
       noto-fonts
       powerline-symbols
       # monolisa-script
