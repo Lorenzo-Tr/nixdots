@@ -15,7 +15,7 @@ in {
     kernelModules = ["v4l2loopback"]; # Autostart kernel modules on boot
     extraModulePackages = with config.boot.kernelPackages; [v4l2loopback]; # loopback module to make OBS virtual camera work
     supportedFilesystems = ["ntfs"];
-    initrd.checkJournalingFS = false;
+    checkJournalingFS = false;
     loader = {
       systemd-boot = {
         enable = false;
@@ -324,9 +324,4 @@ in {
   ];
 
   system.stateVersion = "22.11"; # Did you read the comment?
-  fileSystems."/virtualboxshare" = {
-    fsType = "vboxsf";
-    device = "nameofthesharedfolder";
-    options = [ "rw" "nofail" ];
-  };
 }
