@@ -15,7 +15,9 @@ in {
     kernelModules = ["v4l2loopback"]; # Autostart kernel modules on boot
     extraModulePackages = with config.boot.kernelPackages; [v4l2loopback]; # loopback module to make OBS virtual camera work
     supportedFilesystems = ["ntfs"];
-    checkJournalingFS = false;
+    initrd.checkJournalingFS = false;
+    initrd.availableKernelModules = [ "ata_piix" "ohci_pci" "ehci_pci" "ahci" "sh_mod" "sr_mod" ];
+    initrd.kernelModules = [ ];
     loader = {
       systemd-boot = {
         enable = false;
@@ -36,7 +38,7 @@ in {
         theme =
           pkgs.fetchFromGitHub
           {
-            owner = "catppuccin";
+            owner = "Catppuccin";
             repo = "grub";
             rev = "88f6124757331fd3a37c8a69473021389b7663ad";
             sha256 = "0rih0ra7jw48zpxrqwwrw1v0xay7h9727445wfbnrz6xwrcwbibv";
@@ -192,7 +194,7 @@ in {
     libvirtd.enable = true;
   };
 
-  time.timeZone = "America/Bahia";
+  time.timeZone = "Europe/Paris";
 
   i18n = {
     defaultLocale = "pt_BR.UTF-8";
@@ -323,5 +325,5 @@ in {
     xdg-desktop-portal-hyprland
   ];
 
-  system.stateVersion = "22.11"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment?
 }
