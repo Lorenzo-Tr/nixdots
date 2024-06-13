@@ -18,6 +18,11 @@ in {
     initrd.checkJournalingFS = false;
     loader.systemd-boot.enable = false;
     loader.timeout = 2;
+    loader = {
+      grub = {
+        device = "/dev/sda";
+      };
+    };
     # initrd.availableKernelModules = [ "ata_piix" "ohci_pci" "ehci_pci" "ahci" "sh_mod" "sr_mod" ];
     # initrd.kernelModules = [ ];
     # loader = {
