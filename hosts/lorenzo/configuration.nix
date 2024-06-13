@@ -16,35 +16,37 @@ in {
     extraModulePackages = with config.boot.kernelPackages; [v4l2loopback]; # loopback module to make OBS virtual camera work
     supportedFilesystems = ["ntfs"];
     initrd.checkJournalingFS = false;
-    initrd.availableKernelModules = [ "ata_piix" "ohci_pci" "ehci_pci" "ahci" "sh_mod" "sr_mod" ];
-    initrd.kernelModules = [ ];
-    loader = {
-      systemd-boot = {
-        enable = false;
-        # https://github.com/NixOS/nixpkgs/blob/c32c39d6f3b1fe6514598fa40ad2cf9ce22c3fb7/nixos/modules/system/boot/loader/systemd-boot/systemd-boot.nix#L66
-        editor = false;
-      };
-      timeout = 10;
-      efi = {
-        canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot";
-      };
-      grub = {
-        enable = true;
-        device = "/dev/sda";
-        efiSupport = true;
-        useOSProber = true;
-        configurationLimit = 8;
-        theme =
-          pkgs.fetchFromGitHub
-          {
-            owner = "Catppuccin";
-            repo = "grub";
-            rev = "88f6124757331fd3a37c8a69473021389b7663ad";
-            sha256 = "0rih0ra7jw48zpxrqwwrw1v0xay7h9727445wfbnrz6xwrcwbibv";
-          };
-      };
-    };
+    loader.systemd-boot.enable = false;
+    loader.timeout = 2;
+    # initrd.availableKernelModules = [ "ata_piix" "ohci_pci" "ehci_pci" "ahci" "sh_mod" "sr_mod" ];
+    # initrd.kernelModules = [ ];
+    # loader = {
+    #   systemd-boot = {
+    #     enable = false;
+    #     # https://github.com/NixOS/nixpkgs/blob/c32c39d6f3b1fe6514598fa40ad2cf9ce22c3fb7/nixos/modules/system/boot/loader/systemd-boot/systemd-boot.nix#L66
+    #     editor = false;
+    #   };
+    #   timeout = 10;
+    #   efi = {
+    #     canTouchEfiVariables = true;
+    #     efiSysMountPoint = "/boot";
+    #   };
+    #   grub = {
+    #     enable = true;
+    #     device = "/dev/sda";
+    #     efiSupport = true;
+    #     useOSProber = true;
+    #     configurationLimit = 8;
+    #     theme =
+    #       pkgs.fetchFromGitHub
+    #       {
+    #         owner = "Catppuccin";
+    #         repo = "grub";
+    #         rev = "88f6124757331fd3a37c8a69473021389b7663ad";
+    #         sha256 = "0rih0ra7jw48zpxrqwwrw1v0xay7h9727445wfbnrz6xwrcwbibv";
+    #       };
+    #   };
+    # };
   };
 
   hardware = {
@@ -177,7 +179,7 @@ in {
     };
     polarity = "dark";
     targets = {
-      grub.enable = false;
+      # grub.enable = false;
       gnome.enable = false;
       gtk.enable = true;
       nixos-icons.enable = true;
@@ -186,30 +188,31 @@ in {
 
   # Enables docker in rootless mode
   virtualisation = {
-    docker.rootless = {
-      enable = true;
-      setSocketVariable = true;
-    };
+    # docker.rootless = {
+    #   enable = true;
+    #   setSocketVariable = true;
+    # };
     # Enables virtualization for virt-manager
-    libvirtd.enable = true;
+    # libvirtd.enable = true;
+    virtualbox.guest.enable = true;
   };
 
   time.timeZone = "Europe/Paris";
 
-  i18n = {
-    defaultLocale = "pt_BR.UTF-8";
-    extraLocaleSettings = {
-      LC_ADDRESS = "pt_BR.UTF-8";
-      LC_IDENTIFICATION = "pt_BR.UTF-8";
-      LC_MEASUREMENT = "pt_BR.UTF-8";
-      LC_MONETARY = "pt_BR.UTF-8";
-      LC_NAME = "pt_BR.UTF-8";
-      LC_NUMERIC = "pt_BR.UTF-8";
-      LC_PAPER = "pt_BR.UTF-8";
-      LC_TELEPHONE = "pt_BR.UTF-8";
-      LC_TIME = "pt_BR.UTF-8";
-    };
-  };
+  # i18n = {
+  #   defaultLocale = "pt_BR.UTF-8";
+  #   extraLocaleSettings = {
+  #     LC_ADDRESS = "pt_BR.UTF-8";
+  #     LC_IDENTIFICATION = "pt_BR.UTF-8";
+  #     LC_MEASUREMENT = "pt_BR.UTF-8";
+  #     LC_MONETARY = "pt_BR.UTF-8";
+  #     LC_NAME = "pt_BR.UTF-8";
+  #     LC_NUMERIC = "pt_BR.UTF-8";
+  #     LC_PAPER = "pt_BR.UTF-8";
+  #     LC_TELEPHONE = "pt_BR.UTF-8";
+  #     LC_TIME = "pt_BR.UTF-8";
+  #   };
+  # };
 
   nix = {
     package = pkgs.nixFlakes;
@@ -299,7 +302,6 @@ in {
       };
       # videoDrivers = ["nvidia"];
     };
-    logmein-hamachi.enable = false;
     flatpak.enable = false;
     autorandr = {
       enable = true;

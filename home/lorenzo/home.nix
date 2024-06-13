@@ -12,10 +12,10 @@
 
   # Imports
   imports = [
-    ./apps
-    ./cli-apps
+    # ./apps
+    # ./cli-apps
     ./desktop
-    ./rice
+    # ./rice
     ./system
     ./tools
     # ./virtualization
