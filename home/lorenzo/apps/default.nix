@@ -1,9 +1,9 @@
 _: {
   imports = [
-    ./discord
+    #./discord
     ./firefox
     ./misc
-    ./obs
+    #./obs
     ./vscode
   ];
 }

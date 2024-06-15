@@ -12,8 +12,8 @@
 
   # Imports
   imports = [
-    # ./apps
-    # ./cli-apps
+    ./apps
+    ./cli-apps
     ./desktop
     # ./rice
     ./system

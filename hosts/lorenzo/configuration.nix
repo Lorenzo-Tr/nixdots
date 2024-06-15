@@ -12,11 +12,11 @@ in {
   ];
 
   boot = {
-    kernelModules = ["v4l2loopback"]; # Autostart kernel modules on boot
-    extraModulePackages = with config.boot.kernelPackages; [v4l2loopback]; # loopback module to make OBS virtual camera work
-    supportedFilesystems = ["ntfs"];
+    # kernelModules = ["v4l2loopback"]; # Autostart kernel modules on boot
+    # extraModulePackages = with config.boot.kernelPackages; [v4l2loopback]; # loopback module to make OBS virtual camera work
+    # supportedFilesystems = ["ntfs"];
     initrd.checkJournalingFS = false;
-    loader.systemd-boot.enable = false;
+    # loader.systemd-boot.enable = false;
     loader.timeout = 2;
     loader = {
       grub = {
@@ -54,7 +54,7 @@ in {
     # };
   };
 
-  hardware = {
+  # hardware = {
     # nvidia = {
     #   open = true;
     #   nvidiaSettings = true;
@@ -62,12 +62,12 @@ in {
     #   modesetting.enable = true;
     #   package = config.boot.kernelPackages.nvidiaPackages.stable;
     # };
-    opengl = {
-      enable = true;
-      driSupport32Bit = true;
+    # opengl = {
+      # enable = true;
+      # driSupport32Bit = true;
       # extraPackages = with pkgs; [nvidia-vaapi-driver];
-    };
-  };
+    # };
+  # };
 
   environment = {
     variables = {
@@ -80,12 +80,12 @@ in {
       # __GL_VRR_ALLOWED = "0"; # Controls if Adaptive Sync should be used. Recommended to set as “0” to avoid having problems on some games.
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-      CUDA_CACHE_PATH = "$XDG_CACHE_HOME/nv";
+      # CUDA_CACHE_PATH = "$XDG_CACHE_HOME/nv";
       GTK_THEME = "Catppuccin-Mocha-Compact-Blue-dark";
     };
     sessionVariables = {
       NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
-      WLR_NO_HARDWARE_CURSORS = "1"; # Fix cursor rendering issue on wlr nvidia.
+      # WLR_NO_HARDWARE_CURSORS = "1"; # Fix cursor rendering issue on wlr nvidia.
       DEFAULT_BROWSER = "${pkgs.firefox}/bin/firefox"; # Set default browser
     };
     # shellAliases = {nvidia-settings = "nvidia-settings --config='$XDG_CONFIG_HOME'/nvidia/settings";};
