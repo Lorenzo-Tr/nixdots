@@ -282,14 +282,17 @@ in {
     };
     xserver = {
       enable = true;
-      # displayManager = {
-      #   gdm.enable = true;
-      #   sessionCommands = ''
-      #     xset r rate 150 25
-      #     xrandr --output DP-0 --mode 1920x1080 --rate 144 --primary
-      #     nitrogen --restore
-      #   '';
-      # };
+      displayManager = {
+        sddm.enable = true;
+        sddm.wayland.enable = true;
+        
+        # gdm.enable = true;
+        # sessionCommands = ''
+        #   xset r rate 150 25
+        #   xrandr --output DP-0 --mode 1920x1080 --rate 144 --primary
+        #   nitrogen --restore
+        # '';
+      };
       desktopManager = {
         xfce.enable = false;
       };
