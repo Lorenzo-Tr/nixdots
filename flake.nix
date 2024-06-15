@@ -13,7 +13,7 @@
     waybar-hyprland.url = "github:hyprwm/hyprland";
     nur.url = "github:nix-community/NUR";
     Neve.url = "github:redyf/Neve";
-    # disko.url = "github:nix-community/disko";
+    disko.url = "github:nix-community/disko";
     stylix.url = "github:danth/stylix";
     ags.url = "github:Aylur/ags";
     matugen.url = "github:InioX/matugen?ref=v2.2.0";
@@ -30,7 +30,7 @@
     nixpkgs,
     hyprland,
     home-manager,
-    # disko,
+    disko,
     stylix,
     ...
   } @ inputs: let
@@ -51,7 +51,7 @@
             inherit
               inputs
               hyprland
-              # disko
+              disko
               ;
           };
           modules = [
@@ -68,7 +68,7 @@
             }
             stylix.nixosModules.stylix
             hyprland.nixosModules.default
-            # disko.nixosModules.disko
+            disko.nixosModules.disko
           ];
         };
       # selene = nixpkgs.lib.nixosSystem {

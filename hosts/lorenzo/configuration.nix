@@ -113,7 +113,7 @@ in {
       lorenzo = {
         isNormalUser = true;
         description = "lorenzo";
-        initialPassword = "123456";
+        initialPassword = "7778";
         shell = pkgs.zsh;
         extraGroups = ["networkmanager" "wheel" "input" "docker" "kvm" "libvirtd"];
       };
@@ -205,9 +205,9 @@ in {
   time.timeZone = "Europe/Paris";
 
   # i18n = {
-  #   defaultLocale = "pt_BR.UTF-8";
+  #   defaultLocale = ".UTF-8";
   #   extraLocaleSettings = {
-  #     LC_ADDRESS = "pt_BR.UTF-8";
+  #     LC_ADDRESS = "fr.UTF-8";
   #     LC_IDENTIFICATION = "pt_BR.UTF-8";
   #     LC_MEASUREMENT = "pt_BR.UTF-8";
   #     LC_MONETARY = "pt_BR.UTF-8";
@@ -282,14 +282,14 @@ in {
     };
     xserver = {
       enable = true;
-      displayManager = {
-        gdm.enable = true;
-        sessionCommands = ''
-          xset r rate 150 25
-          xrandr --output DP-0 --mode 1920x1080 --rate 144 --primary
-          nitrogen --restore
-        '';
-      };
+      # displayManager = {
+      #   gdm.enable = true;
+      #   sessionCommands = ''
+      #     xset r rate 150 25
+      #     xrandr --output DP-0 --mode 1920x1080 --rate 144 --primary
+      #     nitrogen --restore
+      #   '';
+      # };
       desktopManager = {
         xfce.enable = false;
       };
@@ -303,26 +303,26 @@ in {
       };
       xkb = {
         variant = "";
-        layout = "br";
+        layout = "en";
       };
       # videoDrivers = ["nvidia"];
     };
     flatpak.enable = false;
     autorandr = {
       enable = true;
-      profiles = {
-        lorenzo = {
-          config = {
-            DP-0 = {
-              enable = true;
-              primary = true;
-              mode = "1920x1080";
-              rate = "144.00";
-              position = "0x0";
-            };
-          };
-        };
-      };
+      # profiles = {
+      #   lorenzo = {
+      #     config = {
+      #       DP-0 = {
+      #         enable = true;
+      #         primary = true;
+      #         mode = "1920x1080";
+      #         rate = "144.00";
+      #         position = "0x0";
+      #       };
+      #     };
+      #   };
+      # };
     };
   };
 

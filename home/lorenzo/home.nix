@@ -15,10 +15,10 @@
     ./apps
     ./cli-apps
     ./desktop
-    # ./rice
+    ./rice
     ./system
     ./tools
-    # ./virtualization
+    ./virtualization
   ];
 
   # Allow unfree packages + use overlays
