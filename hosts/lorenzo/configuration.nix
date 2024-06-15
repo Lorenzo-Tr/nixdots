@@ -21,6 +21,15 @@ in {
     loader = {
       grub = {
         device = "/dev/sda";
+        useOSProber = true;
+        # theme =
+        #   pkgs.fetchFromGitHub
+        #   {
+        #     owner = "Catppuccin";
+        #     repo = "grub";
+        #     rev = "88f6124757331fd3a37c8a69473021389b7663ad";
+        #     sha256 = "0rih0ra7jw48zpxrqwwrw1v0xay7h9727445wfbnrz6xwrcwbibv";
+        #   };
       };
     };
     # initrd.availableKernelModules = [ "ata_piix" "ohci_pci" "ehci_pci" "ahci" "sh_mod" "sr_mod" ];
@@ -54,7 +63,7 @@ in {
     # };
   };
 
-  # hardware = {
+  hardware = {
     # nvidia = {
     #   open = true;
     #   nvidiaSettings = true;
@@ -62,12 +71,12 @@ in {
     #   modesetting.enable = true;
     #   package = config.boot.kernelPackages.nvidiaPackages.stable;
     # };
-    # opengl = {
-      # enable = true;
-      # driSupport32Bit = true;
+    opengl = {
+      enable = true;
+      driSupport32Bit = true;
       # extraPackages = with pkgs; [nvidia-vaapi-driver];
-    # };
-  # };
+    };
+  };
 
   environment = {
     variables = {
@@ -76,11 +85,11 @@ in {
       XDG_SESSION_TYPE = "wayland";
       # GBM_BACKEND = "nvidia-drm";
       # __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-      # __GL_GSYNC_ALLOWED = "1";
-      # __GL_VRR_ALLOWED = "0"; # Controls if Adaptive Sync should be used. Recommended to set as “0” to avoid having problems on some games.
+      __GL_GSYNC_ALLOWED = "1";
+      __GL_VRR_ALLOWED = "0"; # Controls if Adaptive Sync should be used. Recommended to set as “0” to avoid having problems on some games.
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-      # CUDA_CACHE_PATH = "$XDG_CACHE_HOME/nv";
+      CUDA_CACHE_PATH = "$XDG_CACHE_HOME/nv";
       GTK_THEME = "Catppuccin-Mocha-Compact-Blue-dark";
     };
     sessionVariables = {
@@ -280,19 +289,20 @@ in {
         accelProfile = "flat";
       };
     };
-    xserver = {
-      enable = true;
       displayManager = {
         sddm.enable = true;
         sddm.wayland.enable = true;
-        
+      };
+    xserver = {
+      enable = true;
+      # displayManager = {
         # gdm.enable = true;
         # sessionCommands = ''
         #   xset r rate 150 25
         #   xrandr --output DP-0 --mode 1920x1080 --rate 144 --primary
         #   nitrogen --restore
         # '';
-      };
+      # };
       desktopManager = {
         xfce.enable = false;
       };
@@ -311,8 +321,8 @@ in {
       # videoDrivers = ["nvidia"];
     };
     flatpak.enable = false;
-    autorandr = {
-      enable = true;
+    # autorandr = {
+      # enable = true;
       # profiles = {
       #   lorenzo = {
       #     config = {
@@ -326,7 +336,7 @@ in {
       #     };
       #   };
       # };
-    };
+    # };
   };
 
   environment.systemPackages = with pkgs; [
