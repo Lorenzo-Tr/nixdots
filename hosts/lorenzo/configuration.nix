@@ -301,10 +301,10 @@ in {
           ];
         };
       };
-      xkb = {
-        variant = "";
-        layout = "en";
-      };
+      # xkb = {
+      #   variant = "";
+      #   layout = "en";
+      # };
       # videoDrivers = ["nvidia"];
     };
     flatpak.enable = false;
